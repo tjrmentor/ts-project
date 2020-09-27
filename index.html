@@ -9,8 +9,8 @@
 	<select id="cards">
 		<option>vue component here</option>
 	</select>
-	<ol>
-		vue component here
+	<ol id="cards-played-list">
+		<li v-for="card in cardsPlayed">{{ card }}</li>
 	</ol>
 	<script src="./vue.js"></script>
 	<script src="./main.js"></script>
