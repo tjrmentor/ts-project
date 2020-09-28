@@ -1,22 +1,34 @@
-let cardsPlayed = [];
-
-let cardSelectApp = new Vue({
-	el: '#card-select',
-	data: {
-		cardName: '',
-		cardsPlayed: cardsPlayed
+Vue.component('card-select', {
+	template:
+		`<div id="card-select">
+		<input type="text" v-model="cardName">
+		<button v-on:click="play(cardName)">Play</button>
+		</div>`,
+	data: function() {
+		return {
+			cardName: '',
+			cardsPlayed: []
+		};
 	},
 	methods: {
 		play: function(cardName) {
-			cardsPlayed.push(cardName);
+			this.cardsPlayed.push(cardName);
 			this.cardName = '';
 		}
 	}
-})
+});
 
-let cardsPlayedListApp = new Vue({
-	el: '#cards-played-list',
+Vue.component('cards-played-list', {
+	props: ['cardsPlayed'],
+	template:
+		`<ol id="cards-played-list">
+			<li v-for="card in cardsPlayed">{{ card }}</li>
+		</ol>`
+});
+
+let app = new Vue({
+	el: '#app',
 	data: {
-		cardsPlayed: cardsPlayed
+		cardsPlayed: ['a', 'b']
 	}
 });

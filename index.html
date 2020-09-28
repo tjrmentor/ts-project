@@ -2,16 +2,12 @@
 <html>
 <head>
 	<title>TS</title>
-
 </head>
 <body>
-	<div id="card-select">
-		<input type="text" v-model="cardName">
-		<button v-on:click="play(cardName)">Play</button>
+	<div id="app">
+		<card-select></card-select>
+		<cards-played-list cards-played="app.cardsPlayed"></cards-played-list>
 	</div>
-	<ol id="cards-played-list">
-		<li v-for="card in cardsPlayed">{{ card }}</li>
-	</ol>
 	<script src="./vue.js"></script>
 	<script src="./main.js"></script>
 </body>
