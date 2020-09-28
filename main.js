@@ -1,3 +1,36 @@
+Vue.component('region-tracker', {
+	template: 
+		`<div>
+			<country-tracker v-for="country in countries"></country-tracker>
+		</div>`,
+	props: {
+		regionName: String
+	},
+	data: function() {
+		let region = regions.find(region => region.regionName === this.regionName);
+		return {
+			countries: region.countries
+		}
+	}
+});
+
+Vue.component('country-tracker', {
+	template: `{{country.countryName}} | {{country.stability}}`,
+	props: {
+		regionName: String,
+		countryName: String
+	},
+	data: function() {
+		return { 
+			country: null
+		};
+	},
+	created: function() {
+		this.country = regions.find(region => region.regionName === this.regionName).countries
+			.find(country => country.countryName === this.countryName);
+	}
+});
+
 Vue.component('card-select', {
 	template:
 		`<div id="card-select">
