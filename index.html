@@ -5,10 +5,11 @@
 
 </head>
 <body>
-	<label for="cards">Start typing a card:
-	<select id="cards">
-		<option>vue component here</option>
-	</select>
+	<div id="card-select">
+		<input type="text" v-model="cardName">
+		<button>Play</button>
+		<button>Attach to previous</button>
+	</div>
 	<ol id="cards-played-list">
 		<li v-for="card in cardsPlayed">{{ card }}</li>
 	</ol>
