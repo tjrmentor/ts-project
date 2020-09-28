@@ -19,7 +19,9 @@ Vue.component('card-select', {
 });
 
 Vue.component('cards-played-list', {
-	props: ['cardsPlayed'],
+	props: {
+		cardsPlayed: Array
+	},
 	template:
 		`<ol id="cards-played-list">
 			<li v-for="card in cardsPlayed">{{ card }}</li>

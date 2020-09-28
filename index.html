@@ -6,7 +6,7 @@
 <body>
 	<div id="app">
 		<card-select></card-select>
-		<cards-played-list cards-played="app.cardsPlayed"></cards-played-list>
+		<cards-played-list v-bind:cards-played="cardsPlayed"></cards-played-list>
 	</div>
 	<script src="./vue.js"></script>
 	<script src="./main.js"></script>
