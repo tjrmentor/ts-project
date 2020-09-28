@@ -1,12 +1,16 @@
 let cardsPlayed = [];
 
 let cardSelectApp = new Vue({
-	el: '#card-select,'
+	el: '#card-select',
 	data: {
 		cardName: '',
+		cardsPlayed: cardsPlayed
 	},
 	methods: {
-
+		play: function(cardName) {
+			cardsPlayed.push(cardName);
+			this.cardName = '';
+		}
 	}
 })
 

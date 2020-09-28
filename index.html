@@ -7,8 +7,7 @@
 <body>
 	<div id="card-select">
 		<input type="text" v-model="cardName">
-		<button>Play</button>
-		<button>Attach to previous</button>
+		<button v-on:click="play(cardName)">Play</button>
 	</div>
 	<ol id="cards-played-list">
 		<li v-for="card in cardsPlayed">{{ card }}</li>
